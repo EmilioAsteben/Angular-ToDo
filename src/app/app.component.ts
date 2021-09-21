@@ -44,7 +44,6 @@ export class AppComponent implements OnInit {
   selected: string | number = '';
   projectForm: FormGroup;
 
-
   constructor(
     public dialog: MatDialog,
     private ProjectData: ProjectsService,
@@ -87,13 +86,19 @@ export class AppComponent implements OnInit {
 
   postNewTask() {
     this.sendData = this.projectForm.value;
-    if (this.sendData.task_text)
+    if (this.sendData.task_text) {
       this.ProjectData.postData(this.sendData).subscribe(() => {
         this.ProjectData.getData().subscribe((data: Array<Project>) => {
           this.projects = data;
-          this.selected = data[0].id;
+          if (this.sendData.project_name) {
+            this.projectForm.reset({
+              project_id: this.projects.length,
+            });
+            this.selected = this.projects.length;
+          }
         });
         this.dialog.closeAll();
       });
+    }
   }
 }
