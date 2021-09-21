@@ -1,0 +1,41 @@
+
+    <mat-card class = "dialog_form">  
+        <mat-card-header>
+        <mat-card-title>Новая задача</mat-card-title>
+      </mat-card-header>
+      <form class = "new_task_form" [formGroup]="data.projectForm">
+
+  
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Название задачи...</mat-label>
+          <input formControlName="task_text" matInput  [value]="">
+        </mat-form-field>
+      
+        <mat-form-field *ngIf = "data.selected === '' "  class="example-full-width" appearance="fill">
+          <mat-label>Название категории...</mat-label>
+          <input formControlName="project_name" matInput  [value]="">
+        </mat-form-field>
+      
+        <mat-form-field   appearance="fill">
+      
+          <mat-select formControlName="project_id" [(value)]="data.selected">
+      
+            <mat-option *ngFor= "let project of data.projects" [value]="project.id">{{project.title}}</mat-option>
+            <mat-option  [value]="''">Добавить новую категорию</mat-option>
+      
+           
+          </mat-select>
+        </mat-form-field>
+      
+        <div class = "buttons">
+        <button class = "form_button cancel_button" mat-flat-button mat-dialog-close>Отмена</button>
+        <button (click) = "data.postNewTask()" class = "form_button" mat-flat-button color="primary">ОК</button>
+      </div>
+        
+      
+        
+      </form>
+    </mat-card>
+ 
+

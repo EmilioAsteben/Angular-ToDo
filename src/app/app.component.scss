@@ -1,0 +1,92 @@
+.header {
+  position: relative;
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
+
+}
+
+.open_dialog_form {
+  position: absolute;
+  right: 0;
+  margin-right: 40px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  justify-self: flex-end;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+  padding-top: 3rem;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.projects {
+  min-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project_card {
+  max-width: 400px;
+  min-width: 200px;
+  width: min-content;
+  margin-right: 15px;
+  margin-bottom: 15px;
+
+
+}
+
+.mat-card-header {
+  border-bottom: 2px solid #8080800f;
+
+  margin-bottom: 10px;
+}
+
+.mat-checkbox {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0 .75em 0 .75em;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #fff;
+}
+
+.new_task_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_card {
+  max-width: 300px;
+
+
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  .form_button {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+
+  .cancel_button {
+    background-color: #9f9f9f;
+    color: #fff;
+    margin-right: 10px;
+  }
+}
