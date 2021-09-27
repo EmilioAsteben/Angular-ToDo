@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 export type Todo = {
   isCompleted: boolean;
@@ -25,20 +26,20 @@ export class ProjectsService {
 
   getData() {
     return this.http.get<Project[]>(
-      'https://intense-taiga-29233.herokuapp.com/projects'
+      environment.geturl()
     );
   }
 
   patch(project_id: number, todo_id: number) {
     return this.http.patch(
-      `https://intense-taiga-29233.herokuapp.com/projects/${project_id}/todo/${todo_id}`,
+      environment.patchUrl(project_id,todo_id),
       null
     );
   }
 
   postData(newTask: Task) {
     return this.http.post(
-      'https://intense-taiga-29233.herokuapp.com/todos',
+      environment.postUrl(),
       newTask
     );
   }
