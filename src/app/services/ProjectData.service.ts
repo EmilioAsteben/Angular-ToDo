@@ -1,25 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Task } from '../shared/models/task.model';
+import { Project } from '../shared/models/project.model';
 
-export type Todo = {
-  id: number,
-  isCompleted: boolean;
-  project_id: number;
-  text: string;
-};
 
-export interface Project {
-  id: number;
-  title: string;
-  todos: Todo[];
-}
-
-export interface Task {
-  project_id: number;
-  project_name: string;
-  text: string;
-}
 
 @Injectable()
 export class ProjectsService {

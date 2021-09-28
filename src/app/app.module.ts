@@ -17,7 +17,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'; 
 
-import { AppComponent, ArraySortPipe } from './app.component';
+import { AppComponent} from './app.component';
 
 import { FormComponent } from './form/form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +32,6 @@ registerLocaleData(localeRu, 'ru' )
     AppComponent,
     
     FormComponent,
-    ArraySortPipe,
     TaskComponent,
     CategoryComponent
   ],

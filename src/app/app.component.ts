@@ -8,24 +8,14 @@ import {
 import { FormComponent } from './form/form.component';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { ProjectsService, Project, Todo } from './services/ProjectData.service';
-import { Pipe } from '@angular/core';
+import { ProjectsService } from './services/ProjectData.service';
+
+import { Project } from './shared/models/project.model';
 
 
-@Pipe({
-  name: 'sort',
-})
-export class ArraySortPipe implements PipeTransform {
-  transform(array: any): any {
-    if (!Array.isArray(array)) {
-      return;
-    }
-    array.sort((a: any, b: any) => {
-      return a['id'] - b['id'];
-    });
-    return array;
-  }
-}
+
+
+
 
 @Component({
   selector: 'app-root',
