@@ -12,16 +12,9 @@
       <mat-card-header>
         <mat-card-title>{{project.title}}</mat-card-title>
       </mat-card-header>
-
-      <mat-checkbox #c *ngFor="let todo of project.todos | sort" (click)="patchTodo(todo.project_id, todo.id)"
-        [checked]="todo.isCompleted">
-
-        <span [ngStyle]="{
-          textDecoration: c.checked ? 'line-through' : 'none'
-         
-      
-      }">{{todo.text}}</span>
-      </mat-checkbox>
+      <app-task *ngFor="let todo of project.todos"
+      [todo] = "todo"
+      ></app-task>
     </mat-card>
 
   </div>

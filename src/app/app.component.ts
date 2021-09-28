@@ -4,17 +4,18 @@ import {
   PipeTransform,
   ViewEncapsulation,
 } from '@angular/core';
+import { TaskComponent } from './task/task.component';
 import { FormComponent } from './form/form.component';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ProjectsService, Project } from './services/ProjectData.service';
 import { Pipe } from '@angular/core';
 
-export interface Card {
-  title: string;
-  text: string;
-  textColor: string;
-}
+// export interface Card {
+//   title: string;
+//   text: string;
+//   textColor: string;
+// }
 
 @Pipe({
   name: 'sort',
@@ -38,6 +39,7 @@ export class ArraySortPipe implements PipeTransform {
   providers: [ProjectsService],
   encapsulation: ViewEncapsulation.None,
 })
+
 export class AppComponent implements OnInit {
   sendData: any;
   projects: Array<Project>;
@@ -78,11 +80,11 @@ export class AppComponent implements OnInit {
     });
   }
 
-  patchTodo(project_id: number, todo_id: number) {
-    this.ProjectData.patch(project_id, todo_id).subscribe((data: any) => {
-      console.log('done');
-    });
-  }
+  // patchTodo(project_id: number, todo_id: number) {
+  //   this.ProjectData.patch(project_id, todo_id).subscribe((data: any) => {
+  //     console.log('done');
+  //   });
+  // }
 
   postNewTask() {
     this.sendData = this.projectForm.value;
