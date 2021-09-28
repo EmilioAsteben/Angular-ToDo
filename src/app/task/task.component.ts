@@ -23,9 +23,10 @@ export class TaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
+ 
+
   patchTodo(project_id: number, todo_id: number) {
     this.ProjectData.patch(project_id, todo_id).subscribe((data: any) => {
-      console.log('from new component');
     });
   }
 

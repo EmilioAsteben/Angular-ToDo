@@ -7,14 +7,10 @@
 <div class="container">
   <div class="projects">
 
-    <mat-card class=" project_card" *ngFor="let project of projects">
-
-      <mat-card-header>
-        <mat-card-title>{{project.title}}</mat-card-title>
-      </mat-card-header>
-      <app-task *ngFor="let todo of project.todos"
+    <app-category *ngFor="let project of projects; trackBy: identify" [project] = "project">  
+      <app-task *ngFor="let todo of project.todos ; trackBy: identify"
       [todo] = "todo"
       ></app-task>
-    </mat-card>
+    </app-category>
 
   </div>

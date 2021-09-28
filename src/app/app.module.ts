@@ -22,6 +22,7 @@ import { AppComponent, ArraySortPipe } from './app.component';
 import { FormComponent } from './form/form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskComponent } from './task/task.component';
+import { CategoryComponent } from './category/category.component';
 
 
 registerLocaleData(localeRu, 'ru' )
@@ -32,7 +33,8 @@ registerLocaleData(localeRu, 'ru' )
     
     FormComponent,
     ArraySortPipe,
-    TaskComponent
+    TaskComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
