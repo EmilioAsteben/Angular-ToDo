@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://intense-taiga-29233.herokuapp.com/',
+  apiUrl: 'http://localhost:3001/',
   geturl() {
     return `${this.apiUrl}/projects`;
   },

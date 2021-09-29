@@ -44,8 +44,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.ProjectData.getData().subscribe((data: Array<Project>) => {
       this.projects = data;
-      console.log(this.projects);
-      this.selected = data[4].id;
+      console.log(this.projects)
     });
   }
 
