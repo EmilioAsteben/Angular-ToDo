@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CategoryComponent implements OnInit {
 
   @Input() project  = {
-    title: 'qwerty'
+    title: ''
   };
 
   constructor() { }

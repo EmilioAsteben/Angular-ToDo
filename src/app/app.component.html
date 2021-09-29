@@ -7,10 +7,12 @@
 <div class="container">
   <div class="projects">
 
-    <app-category *ngFor="let project of projects; trackBy: identify" [project] = "project">  
-      <app-task *ngFor="let todo of project.todos ; trackBy: identify"
-      [todo] = "todo"
-      ></app-task>
+    <app-category *ngFor="let project of projects; trackBy: identify" [project]="project">
+
+      <app-task *ngFor="let todo of project.todos ; trackBy: identify" [todo]="todo">
+        
+      </app-task>
+
     </app-category>
 
   </div>

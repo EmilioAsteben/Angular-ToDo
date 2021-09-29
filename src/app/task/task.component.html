@@ -1,7 +1,6 @@
-<mat-checkbox (click)="patchTodo(todo.project_id, todo.id)"  #c  
-[checked]="todo.isCompleted">
+<mat-checkbox (click)="patchTodo(todo.project_id, todo.id)" #c [checked]="todo.isCompleted">
 
-<span [ngStyle]="{
+  <span [ngStyle]="{
   textDecoration: c.checked ? 'line-through' : 'none'
  
 

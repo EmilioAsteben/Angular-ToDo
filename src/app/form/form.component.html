@@ -1,41 +1,56 @@
+<mat-card class="dialog_form">
+  <mat-card-header>
+    <mat-card-title>Новая задача</mat-card-title>
+  </mat-card-header>
+  <form class="new_task_form" [formGroup]="projectForm" #formDir="ngForm">
 
-    <mat-card class = "dialog_form">  
-        <mat-card-header>
-        <mat-card-title>Новая задача</mat-card-title>
-      </mat-card-header>
-      <form class = "new_task_form" [formGroup]="data.projectForm">
 
-  
 
-        <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Название задачи...</mat-label>
-          <input formControlName="task_text" matInput  [value]="">
-        </mat-form-field>
-      
-        <mat-form-field *ngIf = "data.selected === '' "  class="example-full-width" appearance="fill">
-          <mat-label>Название категории...</mat-label>
-          <input formControlName="project_name" matInput  [value]="">
-        </mat-form-field>
-      
-        <mat-form-field   appearance="fill">
-      
-          <mat-select formControlName="project_id" [(value)]="data.selected">
-      
-            <mat-option *ngFor= "let project of data.projects" [value]="project.id">{{project.title}}</mat-option>
-            <mat-option  [value]="''">Добавить новую категорию</mat-option>
-      
-           
-          </mat-select>
-        </mat-form-field>
-      
-        <div class = "buttons">
-        <button class = "form_button cancel_button" mat-flat-button mat-dialog-close>Отмена</button>
-        <button (click) = "postNewTask()" class = "form_button" mat-flat-button color="primary">ОК</button>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Название задачи...</mat-label>
+      <input [ngClass]="{
+           invalid_input: formDir.submitted && task_text.invalid && task_text.touched
+        }" id="task_text" formControlName="task_text" matInput [value]="" required>
+
+    </mat-form-field>
+
+    <div *ngIf="task_text.invalid && task_text.touched " class="alert alert-danger">
+      <div *ngIf="task_text.errors?.required">Поле не должно быть пустым</div>
+      <div *ngIf="task_text.errors?.minlength">
+        Не менее 4 символов
       </div>
-        
-      
-        
-      </form>
-    </mat-card>
- 
+    </div>
 
+    <mat-form-field *ngIf="selected === '' " class="example-full-width" appearance="fill">
+      <mat-label>Название категории...</mat-label>
+      <input formControlName="project_name" matInput [value]="">
+    </mat-form-field>
+    <div *ngIf=" selected === '' && project_name.invalid && project_name.touched " class="alert alert-danger">
+      <div *ngIf="selected === '' && project_name.errors?.required ">Поле не должно быть пустым
+
+      </div>
+      <div *ngIf="selected === '' && project_name.errors?.minlength">
+        Не менее 4 символов
+      </div>
+    </div>
+
+    <mat-form-field appearance="fill">
+
+      <mat-select formControlName="project_id" [(value)]="selected">
+
+        <mat-option *ngFor="let project of data.projects" [value]="project.id">{{project.title}}</mat-option>
+        <mat-option (click)="restoreControl()" [value]="''">Добавить новую категорию</mat-option>
+
+
+      </mat-select>
+    </mat-form-field>
+
+    <div class="buttons">
+      <button class="form_button cancel_button" mat-flat-button mat-dialog-close>Отмена</button>
+      <button (click)="onSubmit()" class="form_button" mat-flat-button color="primary">ОК</button>
+    </div>
+
+
+
+  </form>
+</mat-card>
